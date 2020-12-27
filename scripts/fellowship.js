@@ -71,7 +71,7 @@ const makeHobbits = () => {
     // Goal: display an unordered list of hobbits in the shire (which is the first article tag on the page)
 
     // 1. create a 'ul'
-    let $hobbits = $('<ul>')
+    $hobbits = $('<ul>')
 
     // 2. make each hobbit an li element and append it to the 'ul' you just created
     // hint: use the given 'hobbits' array and use a for loop
@@ -94,7 +94,7 @@ const makeHobbits = () => {
 const keepItSecretKeepItSafe = () => {
 
     // 1. create an empty div with an id of 'the-ring'
-    $theRing = $('<div id="the-ring">')
+    $theRing = $('<div>').attr('id', 'the-ring')
     // 2. add the ring as a child of Frodo
     // hint: Frodo does not have an id, but there is a command to retrieve all elements with a certain class. This should give you an array for you to access . . .
     $('.hobbit').first().append($theRing)
@@ -129,13 +129,17 @@ const makeBaddies = () => {
 const makeBuddies = () => {
 
     // 1. create an aside tag and append it to middle-earth below mordor
-
+    $buddiesA = $('<aside>')
+    $('#middle-earth').append($buddiesA)
     // 2. display an unordered list of buddies in the aside
-
+    $buddiesList = $('<ul>')
     // 3. give each of the buddies a class of "buddy"
+    for (let i = 0; i < buddies.length; i++) {
+        $buddiesList.append($('<li>').text(buddiesA[i]).addClass('buddy'))
+        // 4. don't forget to append them to the aside
 
-    // 4. don't forget to append them to the aside
-
+    }
+    $buddiesA.append($buddiesList)
 };
 
 // COMMIT YOUR WORK
